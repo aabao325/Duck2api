@@ -61,7 +61,7 @@ func postStatus(client httpclient.AuroraHttpClient, proxyUrl string) (*http.Resp
 	header := createHeader()
 	header.Set("accept", "*/*")
 	header.Set("x-vqd-accept", "1")
-	response, err := client.Request(httpclient.GET, "https://duck2api.aabao.vip/proxy/duckduckgo.com/duckchat/v1/status", header, nil, nil)
+	response, err := client.Request(httpclient.GET, "https://proxy.aabao.fun/proxy/duckduckgo.com/duckchat/v1/status", header, nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func POSTconversation(client httpclient.AuroraHttpClient, request duckgotypes.Ap
 	header := createHeader()
 	header.Set("accept", "text/event-stream")
 	header.Set("x-vqd-4", token)
-	response, err := client.Request(httpclient.POST, "https://duck2api.aabao.vip/proxy/duckduckgo.com/duckchat/v1/chat", header, nil, bytes.NewBuffer(body_json))
+	response, err := client.Request(httpclient.POST, "https://proxy.aabao.fun/proxy/duckduckgo.com/duckchat/v1/chat", header, nil, bytes.NewBuffer(body_json))
 	if err != nil {
 		return nil, err
 	}
@@ -118,8 +118,8 @@ func createHeader() httpclient.AuroraHeaders {
 	header := make(httpclient.AuroraHeaders)
 	header.Set("accept-language", "zh-CN,zh;q=0.9")
 	header.Set("content-type", "application/json")
-	header.Set("origin", "https://duck2api.aabao.vip/proxy/duckduckgo.com")
-	header.Set("referer", "https://duck2api.aabao.vip/proxy/duckduckgo.com/")
+	header.Set("origin", "https://proxy.aabao.fun/proxy/duckduckgo.com")
+	header.Set("referer", "https://proxy.aabao.fun/proxy/duckduckgo.com/")
 	header.Set("sec-ch-ua", `"Chromium";v="120", "Google Chrome";v="120", "Not-A.Brand";v="99"`)
 	header.Set("sec-ch-ua-mobile", "?0")
 	header.Set("sec-ch-ua-platform", `"Windows"`)
